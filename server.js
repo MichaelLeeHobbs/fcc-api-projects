@@ -1,84 +1,39 @@
-//
-// # SimpleServer
-//
-// A simple chat server using Socket.IO, Express, and Async.
-//
-var http = require('http');
-var path = require('path');
+'use strict';
+//Lets require/import the HTTP module
+const http = require('http');
+const moment = require("moment");
 
-var async = require('async');
-var socketio = require('socket.io');
-var express = require('express');
+//Lets define a port we want to listen to
+const PORT=8080; 
 
-//
-// ## SimpleServer `SimpleServer(obj)`
-//
-// Creates a new instance of SimpleServer with the following options:
-//  * `port` - The HTTP port to listen on. If `process.env.PORT` is set, _it overrides this value_.
-//
-var router = express();
-var server = http.createServer(router);
-var io = socketio.listen(server);
+//We need a function which handles requests and send response
+function handleRequest(request, response){
+    const regexIsNaturalDate = /^\w*(January|February|March|April|May|June|July|August|September|October|November|December) \d{1,2}, \d{4}/;
+    const regexIsNumberOnly = /^\d+$/;
+    const regexLeadingEndingSlashes = /^\/|\/$/g;
+  
+    // handle leading or ending slash
+    let input = decodeURI(request.url).replace(regexLeadingEndingSlashes, '');
+    let isNum = regexIsNumberOnly.test(input);
+    let isNatural = regexIsNaturalDate.test(input);
+    
 
-router.use(express.static(path.resolve(__dirname, 'client')));
-var messages = [];
-var sockets = [];
-
-io.on('connection', function (socket) {
-    messages.forEach(function (data) {
-      socket.emit('message', data);
-    });
-
-    sockets.push(socket);
-
-    socket.on('disconnect', function () {
-      sockets.splice(sockets.indexOf(socket), 1);
-      updateRoster();
-    });
-
-    socket.on('message', function (msg) {
-      var text = String(msg || '');
-
-      if (!text)
-        return;
-
-      socket.get('name', function (err, name) {
-        var data = {
-          name: name,
-          text: text
-        };
-
-        broadcast('message', data);
-        messages.push(data);
-      });
-    });
-
-    socket.on('identify', function (name) {
-      socket.set('name', String(name || 'Anonymous'), function (err) {
-        updateRoster();
-      });
-    });
-  });
-
-function updateRoster() {
-  async.map(
-    sockets,
-    function (socket, callback) {
-      socket.get('name', callback);
-    },
-    function (err, names) {
-      broadcast('roster', names);
+    let result = { "unix": null, "natural": null };
+    if (isNum) {
+        result.unix = parseInt(input, 10);
+        result.natural = moment(input, "X").format("MMMM DD, YYYY");
+    } else if (isNatural) {
+      result.natural = input;
+      result.unix = moment(input,  "MMMM DD, YYYY").unix();
     }
-  );
+    response.end(JSON.stringify(result));
 }
 
-function broadcast(event, data) {
-  sockets.forEach(function (socket) {
-    socket.emit(event, data);
-  });
-}
+//Create a server
+let server = http.createServer(handleRequest);
 
-server.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function(){
-  var addr = server.address();
-  console.log("Chat server listening at", addr.address + ":" + addr.port);
+//Lets start our server
+server.listen(PORT, function(){
+    //Callback triggered when server is successfully listening. Hurray!
+    console.log("Server listening on: http://localhost:%s", PORT);
 });
