@@ -43,16 +43,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand topnav" href="#">Start Bootstrap</a>
+                <p class="nav navbar-brand topnav">HTML Template by:  <a href="http://startbootstrap.com">Start Bootstrap</a></p>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="#about">About</a>
+                        <a href="#main">Main</a>
                     </li>
                     <li>
-                        <a href="#services">Services</a>
+                        <a href="#about">About</a>
                     </li>
                     <li>
                         <a href="#contact">Contact</a>
@@ -66,25 +66,28 @@
 
 
     <!-- Header -->
-    <a name="about"></a>
+    <a name="main"></a>
     <div class="intro-header">
         <div class="container">
 
             <div class="row">
                 <div class="col-lg-12">
                     <div class="intro-message">
-                        <h1>Landing Page</h1>
-                        <h3>A Template by Start Bootstrap</h3>
+                        <h1>URL Shortener Microservice</h1>
+                        <h3>A Microservice by Michael Lee Hobbs</h3>
                         <hr class="intro-divider">
                         <ul class="list-inline intro-social-buttons">
                             <li>
-                                <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
+                                <a href="https://twitter.com/michaelleehobbs" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
                             </li>
                             <li>
-                                <a href="https://github.com/IronSummitMedia/startbootstrap" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+                                <a href="https://github.com/MichaelLeeHobbs" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
                             </li>
                             <li>
-                                <a href="#" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Linkedin</span></a>
+                                <a href="https://www.linkedin.com/in/michael-hobbs-4a836557" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Linkedin</span></a>
+                            </li>
+                            <li>
+                                <a href="http://www.freecodecamp.com/michaelleehobbs" class="btn btn-default btn-lg"> <span class="network-name">FreeCodeCamp</span></a>
                             </li>
                         </ul>
                     </div>
@@ -99,19 +102,44 @@
 
     <!-- Page Content -->
 
-	<a  name="services"></a>
+	<a  name="about"></a>
     <div class="content-section-a">
 
         <div class="container">
             <div class="row">
-                <div class="col-lg-5 col-sm-6">
+                <div class="col-lg-12 col-sm-12">
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
-                    <h2 class="section-heading">Death to the Stock Photo:<br>Special Thanks</h2>
-                    <p class="lead">A special thanks to <a target="_blank" href="http://join.deathtothestockphoto.com/">Death to the Stock Photo</a> for providing the photographs that you see in this template. Visit their website to become a member.</p>
-                </div>
-                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                    <img class="img-responsive" src="img/ipad.png" alt="">
+                    <h2 class="section-heading">FreeCodeCamp API Basejump: URL Shortener Microservice</h2>
+                    <p class="lead">
+                        <blockquote>
+                            <p>User stories:</p>
+                            <ul>
+                                <li>I can pass a URL as a parameter and I will receive a shortened URL in the JSON response.</li>
+                                <li>When I visit that shortened URL, it will redirect me to my original link.</ul></li>
+                            </ul>
+                        </blockquote>
+                        <h3>Example creation usage:</h3>
+                        <blockquote>
+                            <code>https://fcc-ms-url-shortener-michaelleehobbs.c9users.io/new/https://www.google.com</code>
+                            <br/>
+                            <code>https://fcc-ms-url-shortener-michaelleehobbs.c9users.io/new/http://foo.com:80</code>
+                        </blockquote>
+                        <h3>Example creation output</h3>
+                        <blockquote>
+                            <code>{ "original_url":"http://foo.com:80", "short_url":"https://fcc-ms-url-shortener-michaelleehobbs.c9users.io/8170"}</code>
+                        </blockquote>
+                        <h3>Usage:</h3>
+                        <blockquote>
+                            <code>hhttps://fcc-ms-url-shortener-michaelleehobbs.c9users.io/2871</code>
+                        </blockquote>
+
+                        <h3>Will redirect to:</h3>
+                        <blockquote>
+                            <code>https://www.google.com/</code>
+                        </blockquote>
+
+                    </p>
                 </div>
             </div>
 
@@ -121,19 +149,74 @@
     </div>
     <!-- /.content-section-a -->
 
-    <div class="content-section-b">
+    <div class="content-section-a">
 
         <div class="container">
 
             <div class="row">
-                <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
+                <div class="col-lg-7 col-sm-6">
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
-                    <h2 class="section-heading">3D Device Mockups<br>by PSDCovers</h2>
-                    <p class="lead">Turn your 2D designs into high quality, 3D product shots in seconds using free Photoshop actions by <a target="_blank" href="http://www.psdcovers.com/">PSDCovers</a>! Visit their website to download some of their awesome, free photoshop actions!</p>
+                    <h2 class="section-heading">Postmortem</h2>
+                    <p class="lead">After going through the
+                        <a target="_blank" href="https://www.freecodecamp.com/challenges/get-set-for-our-back-end-development-projects">Get Set for our Back End Development Projects</a> I decided the framework provided to us was very heavy for the concept of micro-services. So, I build my framework from the ground up, starting with <a target="_blank" href="https://www.freecodecamp.com/challenges/timestamp-microservice">Timestamp Microservice</a> located at: <a target="_blank" href="https://ide.c9.io/michaelleehobbs/fcc-ms-timestamp">https://ide.c9.io/michaelleehobbs/fcc-ms-timestamp</a> For this project I went with the bare minimum. It has no client view and simply performs it's expected task. For the next project <a target="_blank" href="https://www.freecodecamp.com/challenges/Request%20Header%20Parser%20Microservice">Request Header Parser Microservice</a> I simply cloned my C9 workspace and made the necessary code changes.
+                    </p>
+
                 </div>
-                <div class="col-lg-5 col-sm-pull-6  col-sm-6">
-                    <img class="img-responsive" src="img/dog.png" alt="">
+                <div class="col-lg-4 col-lg-offset-1 col-sm-6">
+                    <img class="img-responsive" src="img/800px-Agile_Project_Management_by_Planbox.png" alt="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-sm-12">
+                    <div class="clearfix"></div>
+                    <p class="lead">For this third backend project once I had finished the microservice I felt it really needed a view. Normally for something like this I would just use a Yeoman generator like AngularFullStack, but then that would be even heaver than the one FCC provided to us. Thus I decided to simple expand on the frame work I had build. Initially, I just built a simple Node route handler and a very simple index.html view that was basically identical to the example project. However, it was to plain for my taste. Rather than take the time to build out a nice view, I Googled up some templates and picked one I liked. This however left me with a problem where I now had many files to serve rather than one. Not wanting to take the time to solve a problem that has already been solved, I opted for Express.js.</p>
+                    <p class="lead">After getting Express up and severing the client view it was time to hook in a route for the microserve. On the surface this is easy enough. However, a subtle issue I ran into was with the routes where the template I used expected assets to live on / and the microsevice specification also expected to use the / route. To get around this limitation I had to dig into the Express API documentation a bit. That's right, I read the manual. As we like to joke at work I've lost some nerd credit, hopefully not too much. Jokes aside, I was able to come up a route <code>'/:id(\d*)'</code> that solved my issues. This route will match any route that starts with / and contains a string of numbers. If it doesn't match then Express will pass it along and my / route will catch it servering up the static content of my client view. The only real magic here is knowing that you can combine params and regex.</p>
+                    <p class="lead">Additionally, I took the opportunity to use an ES6 Generator to handle id generation for the urls. While generators are straight forward enough to deploy, finding a use for them outside of some specific problems types seems to be the real trick. To use them for this problem, I first setup the generator:
+<pre><code>*getId() {
+  let nextId = 0;
+  while(true) {
+    yield nextId++;
+    if (nextId === Number.MAX_SAFE_INTEGER) {
+      nextId = 0;
+    }
+  }
+}</code></pre> Next I setup a namespaced private member variable to hold it:
+<pre><code>module.exports = class MSUrlShortener {
+  constructor(hostname) {
+    this._hostname = hostname;
+    this._idGenerator = this.getId();
+    // ...
+  }
+  //...
+}</code></pre> Lastly, I add a getter to easily access/use my generator, in hindsight I should have named it better as it is not really descriptive of what it is doing:
+
+<pre><code>get id() { return this._idGenerator.next().value; }</code></pre> </p>
+                    <p class="lead">When the *getId function is called it will return a generator function. The first time we call next() it will start running the code in the block first initializing the nextId to 0. From there it will hit the while loop where magic happens. Here we have a loop that will never end but will pause each time it hits the yield statement. This simple yet elegant pattern is based on a similar one in the book <a target="_blank" href="https://www.freecodecamp.com/challenges/get-set-for-our-back-end-development-projects">JavaScript Concurrency.</a> The important thing to keep in mind here is this works because we follow each yield up with a check to make sure our nextId does not overflow. Additionally, our calling code will have to beware that after a very long period of time the id's generated will no longer be unique. In the case of this project that is acceptable as we will likely run out of memory before it becomes an issue. In the case that we don't run out of memory then we will just start overwriting shortened urls which is acceptable for our use case.</p>
+                    <p class="lead">Overall, I've really enjoyed working on these last three projects and starting with nothing but a blank file. It was a good experience to get away from these pre-rolled frameworks and see what it takes to set one up. Adding on features as you need, keeping it organized, and not letting it turn into a tangled mess. It was also fun to see what goes into setting up routing from scratch. Lastly, the chance to use generators in a real project helped to get a better feel how they could be useful in production. Overall, I've had fun and look forward to seeing where I need to take this framework for the next two projects over at: <a href="http://www.freecodecamp.com/michaelleehobbs">FreeCodeCamp</a></p>
+                    <p class="lead">If you like what you see here, please feel free to contact me. While, I'm not looking to make an immediate change, I would like to get out of New Jersey sometime in the near future.</p>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.content-section-a -->
+
+        <div class="content-section-b">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-1 col-sm-push-6  col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">Michael Lee Hobbs<br>Computer Scientist, DevOps<br>Picatinny Arsenal</h2>
+                    <p class="lead">Michael works for the DOD developing battle field technologies. His primary area of expertise is the MEAN stack, DevOps, Linux System Admin, and Networking. Currently he is very focused on learning Nodejs indepth; clustering/forking, as well as Chef/Puppet. His interest and hobbies include: Automating the World, Read/Writing Books, Movies, and Video/Board Games.</p>
+                </div>
+                <div class="col-lg-3 col-sm-pull-6  col-sm-6">
+                    <img style="width: 150%; height: 150%" class="img-responsive" src="https://avatars0.githubusercontent.com/u/6986471?v=3&u=d9dc930c2517243ef6087cd97203f7519251f8a8&s=140" alt="">
                 </div>
             </div>
 
@@ -143,49 +226,30 @@
     </div>
     <!-- /.content-section-b -->
 
-    <div class="content-section-a">
-
-        <div class="container">
-
-            <div class="row">
-                <div class="col-lg-5 col-sm-6">
-                    <hr class="section-heading-spacer">
-                    <div class="clearfix"></div>
-                    <h2 class="section-heading">Google Web Fonts and<br>Font Awesome Icons</h2>
-                    <p class="lead">This template features the 'Lato' font, part of the <a target="_blank" href="https://www.google.com/fonts">Google Web Font library</a>, as well as <a target="_blank" href="https://fontawesome.io">icons from Font Awesome</a>.</p>
-                </div>
-                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                    <img class="img-responsive" src="img/phones.png" alt="">
-                </div>
-            </div>
-
-        </div>
-        <!-- /.container -->
-
-    </div>
-    <!-- /.content-section-a -->
-
 	<a  name="contact"></a>
     <div class="banner">
 
         <div class="container">
 
             <div class="row">
-                <div class="col-lg-6">
-                    <h2>Connect to Start Bootstrap:</h2>
+                <div class="col-lg-5">
+                    <h2>Connect with Michael:</h2>
                 </div>
-                <div class="col-lg-6">
-                    <ul class="list-inline banner-social-buttons">
-                        <li>
-                            <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
-                        </li>
-                        <li>
-                            <a href="https://github.com/IronSummitMedia/startbootstrap" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
-                        </li>
-                        <li>
-                            <a href="#" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Linkedin</span></a>
-                        </li>
-                    </ul>
+                <div class="col-lg-7">
+                        <ul class="list-inline intro-social-buttons">
+                            <li>
+                                <a href="https://twitter.com/michaelleehobbs" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/MichaelLeeHobbs" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/in/michael-hobbs-4a836557" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Linkedin</span></a>
+                            </li>
+                            <li>
+                                <a href="http://www.freecodecamp.com/michaelleehobbs" class="btn btn-default btn-lg"> <span class="network-name">FreeCodeCamp</span></a>
+                            </li>
+                        </ul>
                 </div>
             </div>
 
@@ -206,18 +270,18 @@
                         </li>
                         <li class="footer-menu-divider">&sdot;</li>
                         <li>
-                            <a href="#about">About</a>
+                            <a href="#main">Top</a>
                         </li>
                         <li class="footer-menu-divider">&sdot;</li>
                         <li>
-                            <a href="#services">Services</a>
+                            <a href="#about">About</a>
                         </li>
                         <li class="footer-menu-divider">&sdot;</li>
                         <li>
                             <a href="#contact">Contact</a>
                         </li>
                     </ul>
-                    <p class="copyright text-muted small">Copyright &copy; Your Company 2014. All Rights Reserved</p>
+                    <p class="copyright text-muted small">Copyright &copy; Michael Lee Hobbs 2016. All Rights Reserved</p>
                 </div>
             </div>
         </div>

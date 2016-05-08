@@ -2,9 +2,10 @@
   "name": "fcc-ms-rhp",
   "version": "0.0.1",
   "description": "API Basejump: Request Header Parser Microservice",
-  "main": "server.js",
+  "main": "server/server.js",
   "repository": "https://github.com/MichaelLeeHobbs/ms-rhp.git",
   "author": "Michael Lee Hobbs <michael.lee.hobbs@gmail.com>",
   "dependencies": {
+    "express": "^4.13.4"
   }
 }
