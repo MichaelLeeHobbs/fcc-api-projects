@@ -46,6 +46,6 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
-app.listen(process.env.PORT, IP, function() {
-  console.log(`Example app listening on port ${process.env.PORT}!`);
+app.listen(PORT, IP, function() {
+  console.log(`Example app listening on port ${PORT}!`);
 });
