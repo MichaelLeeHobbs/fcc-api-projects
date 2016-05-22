@@ -1,11 +1,16 @@
 {
   "name": "fcc-ms-rhp",
   "version": "0.0.1",
-  "description": "API Basejump: Request Header Parser Microservice",
+  "description": "FreeCodeCamp API Projects",
   "main": "server/server.js",
-  "repository": "https://github.com/MichaelLeeHobbs/ms-rhp.git",
+  "repository": "https://github.com/MichaelLeeHobbs/fcc-api-projects.git",
   "author": "Michael Lee Hobbs <michael.lee.hobbs@gmail.com>",
   "dependencies": {
-    "express": "^4.13.4"
+    "body-parser": "^1.15.1",
+    "express": "^4.13.4",
+    "moment": "^2.13.0",
+    "morgan": "^1.7.0",
+    "multer": "^1.1.0",
+    "request": "^2.72.0"
   }
 }

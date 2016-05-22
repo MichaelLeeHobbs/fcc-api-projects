@@ -2,7 +2,7 @@
 //Lets require/import the HTTP module
 const http = require('http');
 
-const PORT = process.env.PORT; 
+const PORT = process.env.PORT;
 const IP = process.env.IP;
 const HOSTNAME = 'https://fcc-ms-url-shortener-michaelleehobbs.c9users.io/';
 
@@ -18,8 +18,8 @@ module.exports = class MSUrlShortener {
     if (request.params.url) {
       response.end(JSON.stringify(this.shortenUrl(request.params.url)));
       return;
-    } 
-    
+    }
+
     if (request.params.id) {
       let result = this.redirect(request.params.id);
       if (result.error) {
@@ -28,8 +28,9 @@ module.exports = class MSUrlShortener {
         response.redirect(result);
       }
     }
+    next();
   }
-  
+
   shortenUrl(url) {
     let shortUrl;
     let id;
@@ -43,16 +44,16 @@ module.exports = class MSUrlShortener {
     }
     return { "original_url": url, "short_url": shortUrl };
   }
-  
+
   redirect(url) {
     return (this._urlMap.has(url)) ? `https://${this._urlMap.get(url)}` : { "error": "Url not in database." };
   }
-  
+
   isValidUrl(url) {
     const regexUrl = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/;
     return regexUrl.test(url);
   }
-  
+
   *getId() {
     let nextId = 0;
     while(true) {
@@ -62,9 +63,9 @@ module.exports = class MSUrlShortener {
       }
     }
   }
-  
+
   get id() { return this._idGenerator.next().value; }
-  
+
   trimLeadingSlash(url) {
     const regexLeadingSlashes = /^\//g;
     return url.replace(regexLeadingSlashes, '');

@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Landing Page - Start Bootstrap Theme</title>
+    <title>FreeCodeCamp API Projects</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -48,15 +48,13 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="#main">Main</a>
-                    </li>
-                    <li>
-                        <a href="#about">About</a>
-                    </li>
-                    <li>
-                        <a href="#contact">Contact</a>
-                    </li>
+                    <li><a href="#top">Top</a></li>
+                    <li><a href="#Timestamp Microservice">Timestamp</a></li>
+                    <li><a href="#Request Header Parser Microservice">Request Header Parser</a></li>
+                    <li><a href="#URL Shortener Microservice">URL Shortener</a></li>
+                    <li><a href="#File Metadata Microservice">File Metadata</a></li>
+                    <li><a href="#Postmortem">Postmortem</a></li>
+                    <li><a href="#about">About</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -66,15 +64,15 @@
 
 
     <!-- Header -->
-    <a name="main"></a>
+    <a name="top"></a>
     <div class="intro-header">
         <div class="container">
 
             <div class="row">
                 <div class="col-lg-12">
                     <div class="intro-message">
-                        <h1>URL Shortener Microservice</h1>
-                        <h3>A Microservice by Michael Lee Hobbs</h3>
+                        <h1>FreeCodeCamp API Projects</h1>
+                        <h3>Microservices by Michael Lee Hobbs</h3>
                         <hr class="intro-divider">
                         <ul class="list-inline intro-social-buttons">
                             <li>
@@ -101,10 +99,102 @@
     <!-- /.intro-header -->
 
     <!-- Page Content -->
-
-	<a  name="about"></a>
+    <!-- Timestamp Microservice -->
+    <a  name="Timestamp Microservice"></a>
     <div class="content-section-a">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-sm-12">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">FreeCodeCamp API Basejump: Timestamp Microservice</h2>
+                    <p class="lead">
+                        <blockquote>
+                            <p>User stories:</p>
+                            <ul>
+                                <li>I can pass a string as a parameter, and it will check to see whether that string contains either a unix timestamp or a natural language date (example: January 1, 2016).</li>
+                                <li>If it does, it returns both the Unix timestamp and the natural language form of that date.</li>
+                                <li>If it does not contain a date or Unix timestamp, it returns null for those properties.</li>
+                            </ul>
+                        </blockquote>
+                        <h3>Example Usage:</h3>
+                        <blockquote>
+                            <code>https://fcc-ms-url-shortener-michaelleehobbs.c9users.io/api/timestamp/December%2002,%201975</code>
+                        </blockquote>
+                        <h3>Example Output:</h3>
+                        <blockquote>
+                            <code><pre>
+// 20160522100357
+// https://fcc-ms-url-shortener-michaelleehobbs.c9users.io/api/timestamp/December%2002,%201975
 
+{
+  "unix": 186710400,
+  "natural": "December 02, 1975"
+}                       </pre></code>
+                        </blockquote>
+                        <h3>Example Usage:</h3>
+                        <blockquote>
+                            <code>https://fcc-ms-url-shortener-michaelleehobbs.c9users.io/api/timestamp/1450137600</code>
+                        </blockquote>
+                        <h3>Example Output:</h3>
+                        <blockquote>
+                            <code><pre>
+// 20160522100532
+// https://fcc-ms-url-shortener-michaelleehobbs.c9users.io/api/timestamp/1450137600
+
+{
+  "unix": 1450137600,
+  "natural": "December 15, 2015"
+}                       </pre></code>
+                        </blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Request Header Parser Microservice -->
+
+
+    <!-- Request Header Parser Microservice -->
+    <a  name="Request Header Parser Microservice"></a>
+    <div class="content-section-a">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-sm-12">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">FreeCodeCamp API Basejump: Request Header Parser Microservice</h2>
+                    <p class="lead">
+                        <blockquote>
+                            <p>User stories:</p>
+                            <ul>
+                                <li>I can get the IP address, language and operating system for my browser.</li>
+                            </ul>
+                        </blockquote>
+                        <h3>Example Usage:</h3>
+                        <blockquote>
+                            <code>https://fcc-ms-url-shortener-michaelleehobbs.c9users.io/api/rhp</code>
+                        </blockquote>
+                        <h3>Example Output:</h3>
+                        <blockquote>
+                            <code><pre>
+// 20160522095258
+// https://fcc-ms-url-shortener-michaelleehobbs.c9users.io/api/rhp
+
+{
+  "ipaddress": "24.186.202.44",
+  "language": "en-US",
+  "software": "X11; Linux x86_64"
+}                       </pre></code>
+                        </blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Request Header Parser Microservice -->
+
+    <!-- URL Shortener Microservice -->
+	<a  name="URL Shortener Microservice"></a>
+    <div class="content-section-a">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-sm-12">
@@ -119,24 +209,97 @@
                                 <li>When I visit that shortened URL, it will redirect me to my original link.</ul></li>
                             </ul>
                         </blockquote>
-                        <h3>Example creation usage:</h3>
+                        <h3>Example creation Usage:</h3>
                         <blockquote>
                             <code>https://fcc-ms-url-shortener-michaelleehobbs.c9users.io/new/https://www.google.com</code>
-                            <br/>
-                            <code>https://fcc-ms-url-shortener-michaelleehobbs.c9users.io/new/http://foo.com:80</code>
                         </blockquote>
-                        <h3>Example creation output</h3>
+                        <h3>Example creation Output</h3>
                         <blockquote>
-                            <code>{ "original_url":"http://foo.com:80", "short_url":"https://fcc-ms-url-shortener-michaelleehobbs.c9users.io/8170"}</code>
+                            <code><pre>
+// 20160522095530
+// https://fcc-ms-url-shortener-michaelleehobbs.c9users.io/new/https://www.google.com
+
+{
+  "original_url": "https:",
+  "short_url": "https://fcc-ms-url-shortener-michaelleehobbs.c9users.io/0"
+}                           </pre></code>
                         </blockquote>
                         <h3>Usage:</h3>
                         <blockquote>
-                            <code>https://fcc-ms-url-shortener-michaelleehobbs.c9users.io/2871</code>
+                            <code>https://fcc-ms-url-shortener-michaelleehobbs.c9users.io/0</code>
                         </blockquote>
 
                         <h3>Will redirect to:</h3>
                         <blockquote>
                             <code>https://www.google.com/</code>
+                        </blockquote>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /URL Shortener Microservice -->
+
+    <!-- Image Search Abstraction Layer -->
+    <a  name="File Metadata Microservice"></a>
+    <div class="content-section-a">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-sm-12">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">FreeCodeCamp API Basejump: File Metadata Microservice</h2>
+                    <p class="lead">
+                        <blockquote>
+                            <p>User stories:</p>
+                            <ul>
+                                <li>I can get the image URLs, alt text and page urls for a set of images relating to a given search string.</li>
+                                <li>I can paginate through the responses by adding a ?offset=2 parameter to the URL.</li>
+                                <li>I can get a list of the most recently submitted search strings.</li>
+                            </ul>
+                        </blockquote>
+                        <h3>Example Search Usage:</h3>
+                        <blockquote>
+                            <code>https://fcc-ms-url-shortener-michaelleehobbs.c9users.io/api/imagesearch/lolcats%20funny?offset=10</code>
+                        </blockquote>
+                        <h3>Example Search Output</h3>
+                        <blockquote>
+                            <code><pre>
+// 20160522102707
+// https://fcc-ms-url-shortener-michaelleehobbs.c9users.io/api/imagesearch/lolcats%20funny?offset=10
+
+[
+  {
+    "url": "http://4.bp.blogspot.com/-epxUtTpidgM/Tl0LrfIwPOI/AAAAAAAAdOY/rwZA0Zb_jWg/s1600/lolcats5.jpg",
+    "snippet": "Hilarious LOLcats Seen On www.coolpicturegallery.us",
+    "thumbnail": "http://ts3.mm.bing.net/th?id=OIP.Mb796e2f7a6f4001d32c898791a7c4921H0&pid=15.1",
+    "context": "http://coolanimalspics.blogspot.com/2011/08/hilarious-lolcats.html"
+  },
+  {
+    "url": "http://www.dumpaday.com/wp-content/uploads/2012/12/funny-lolcats.jpg",
+    "snippet": "tagged with funny pictures 28 pics funny pictures",
+    "thumbnail": "http://ts2.mm.bing.net/th?id=OIP.M458d6d7c38dfd8f66c87f7bf8fc39c64o0&pid=15.1",
+    "context": "http://dumpaday.com/random-pictures/funny-pictures/random-funny-pictures-28-pics-2"
+  },... many more results
+]                           </pre></code>
+                        </blockquote>
+                        <h3>Example Usage:</h3>
+                        <blockquote>
+                            <code>https://fcc-ms-url-shortener-michaelleehobbs.c9users.io/api/latest/imagesearch</code>
+                        </blockquote>
+
+                        <h3>Example Output</h3>
+                        <blockquote>
+                            <code><pre>
+// 20160522103016
+// https://fcc-ms-url-shortener-michaelleehobbs.c9users.io/api/latest/imagesearch
+
+[
+  {
+    "term": "lolcats funny",
+    "date": "2016-05-22T14:27:06.859Z"
+  }
+]                           </pre></code>
                         </blockquote>
 
                     </p>
@@ -145,10 +308,45 @@
 
         </div>
         <!-- /.container -->
-
     </div>
-    <!-- /.content-section-a -->
+    <!-- /File Metadata Microservice -->
 
+
+
+    <!-- File Metadata Microservice -->
+    <a  name="File Metadata Microservice"></a>
+    <div class="content-section-a">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-sm-12">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">FreeCodeCamp API Basejump: File Metadata Microservice</h2>
+                    <p class="lead">
+                        <blockquote>
+                            <p>User stories:</p>
+                            <ul>
+                                <li>I can submit a FormData object that includes a file upload.</li>
+                                <li>When I submit something, I will receive the file size in bytes within the JSON response.</li>
+                            </ul>
+                        </blockquote>
+                        <h3>Simple Form Example:</h3>
+                        <blockquote>
+                        	<form enctype="multipart/form-data" method="post", action="/api/filemetadata">
+                        		<input type="file" name="afile" />
+                        		<input type="submit" value="Upload" />
+                        	</form>
+                        </blockquote>
+
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+    </div>
+    <!-- /File Metadata Microservice -->
+    <a  name="Postmortem"></a>
     <div class="content-section-a">
 
         <div class="container">
@@ -194,6 +392,10 @@
 <pre><code>get id() { return this._idGenerator.next().value; }</code></pre> </p>
                     <p class="lead">When the *getId function is called it will return a generator function. The first time we call next() it will start running the code in the block first initializing the nextId to 0. From there it will hit the while loop where magic happens. Here we have a loop that will never end but will pause each time it hits the yield statement. This simple yet elegant pattern is based on a similar one in the book <a target="_blank" href="https://www.freecodecamp.com/challenges/get-set-for-our-back-end-development-projects">JavaScript Concurrency.</a> The important thing to keep in mind here is this works because we follow each yield up with a check to make sure our nextId does not overflow. Additionally, our calling code will have to beware that after a very long period of time the id's generated will no longer be unique. In the case of this project that is acceptable as we will likely run out of memory before it becomes an issue. In the case that we don't run out of memory then we will just start overwriting shortened urls which is acceptable for our use case.</p>
                     <p class="lead">Overall, I've really enjoyed working on these last three projects and starting with nothing but a blank file. It was a good experience to get away from these pre-rolled frameworks and see what it takes to set one up. Adding on features as you need, keeping it organized, and not letting it turn into a tangled mess. It was also fun to see what goes into setting up routing from scratch. Lastly, the chance to use generators in a real project helped to get a better feel how they could be useful in production. Overall, I've had fun and look forward to seeing where I need to take this framework for the next two projects over at: <a href="http://www.freecodecamp.com/michaelleehobbs">FreeCodeCamp</a></p>
+                    <p class="lead"><b>Update: </b> I was finnally able to get enough time away from work and my other requirements to finsh this up. Of the last two projects the last one, "File Metadata Microservice" was about as simple as it can get. It really has only one line of code that does anything. All the other lines of code are just glue/clean up code.</p>
+                    <p class="lead">However, the second to last project "Image Search Abstraction Layer" was a bit of a pain and rather lengthy. The part that was painful and took by far the most time was getting the Bing API key into header correctly. I'm not entirely sure what was going on here. I've used a number of API's over the course of the FCC projects and never had an issue with an API key. Eventually, I solved the issue by reading the code of a Bing API repo over on GitHub.</p>
+                    <p class="lead">With the Bing issue out of the way, I was able to quickly finsh up the project. One I finished up basic testing and made sure I was getting the expected results, it was time to refactor. Due to the issues I had had with Bing I hadn't put much though into where to break the code up, so I was left with two really long functions. I prefer to limit my functions to one to two transformation and 25 lines of less with rare exception.</p>
+                    <p class="lead">In closing, I'm happy to be done with the FCC API Projects. It was definitely an experince starting from scratch. I would recommend it in a heartbeat as I learned so much about expressjs that is too frequently hidden behinf fancy frameworks, not that I have anything against fancy frameworks. I look forward to finishing up the last two "Dynamic Web Application Projects." I could probably knock them both out in a weekend or two using a MEAN stack framework, but I'm really excited to learn React. So, I'm going to take a short break to learn React, and then come back to them.</p>
                     <p class="lead">If you like what you see here, please feel free to contact me. While, I'm not looking to make an immediate change, I would like to get out of New Jersey sometime in the near future.</p>
                 </div>
             </div>
@@ -204,16 +406,15 @@
     </div>
     <!-- /.content-section-a -->
 
-        <div class="content-section-b">
-
+    <a  name="about"></a>
+    <div class="content-section-b">
         <div class="container">
-
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-1 col-sm-push-6  col-sm-6">
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
                     <h2 class="section-heading">Michael Lee Hobbs<br>Computer Scientist, DevOps<br>Picatinny Arsenal</h2>
-                    <p class="lead">Michael works for the DOD developing battle field technologies. His primary area of expertise is the MEAN stack, DevOps, Linux System Admin, and Networking. Currently he is very focused on learning Nodejs indepth; clustering/forking, as well as Chef/Puppet. His interest and hobbies include: Automating the World, Read/Writing Books, Movies, and Video/Board Games.</p>
+                    <p class="lead">I work for the DoD developing battle field technologies. My primary area of expertise is the MEAN stack, DevOps, Linux Admin, and Networking. Currently am very focused on mastering Nodejs; clustering/forking, learning Chef/Puppet as well as React. My interest and hobbies include: Automating the world, reading/writing books, wathcing movies, and playing video/board games.</p>
                 </div>
                 <div class="col-lg-3 col-sm-pull-6  col-sm-6">
                     <img style="width: 150%; height: 150%" class="img-responsive" src="https://avatars0.githubusercontent.com/u/6986471?v=3&u=d9dc930c2517243ef6087cd97203f7519251f8a8&s=140" alt="">
@@ -226,7 +427,6 @@
     </div>
     <!-- /.content-section-b -->
 
-	<a  name="contact"></a>
     <div class="banner">
 
         <div class="container">

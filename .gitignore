@@ -31,3 +31,9 @@ node_modules
 
 # Optional REPL history
 .node_repl_history
+
+# Secrets.js - ie where api keys are stored
+env/secrets.js
+
+# uploads
+uploads
