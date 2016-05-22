@@ -2,8 +2,6 @@
 //Lets require/import the HTTP module
 const request = require('request');
 
-const PORT = process.env.PORT;
-const IP = process.env.IP;
 const SECONDS_IN_DAY = 86400;
 const MS_IN_SECOND = 1000;
 

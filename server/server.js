@@ -1,5 +1,9 @@
 'use strict';
-const HOSTNAME = 'https://fcc-ms-url-shortener-michaelleehobbs.c9users.io/';
+const common = require('./common.js');
+const config = common.config();
+const HOSTNAME = config.hostname;
+const IP = config.ip || process.env.IP;
+const PORT = config.port || process.env.PORT;
 
 const express = require('express');
 const multer  = require('multer');
@@ -42,6 +46,6 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
-app.listen(process.env.PORT, function() {
+app.listen(process.env.PORT, IP, function() {
   console.log(`Example app listening on port ${process.env.PORT}!`);
 });

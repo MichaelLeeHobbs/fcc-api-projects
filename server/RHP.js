@@ -1,9 +1,4 @@
 'use strict';
-
-//Lets define a port we want to listen to
-const PORT = process.env.PORT;
-const IP = process.env.IP;
-
 module.exports = class RequestHeaderPacket {
 
     constructor(hostname, bingApiKey) {

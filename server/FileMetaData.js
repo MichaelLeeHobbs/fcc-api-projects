@@ -1,9 +1,6 @@
 'use strict';
 const fs = require("fs");
 
-const PORT = process.env.PORT;
-const IP = process.env.IP;
-
 module.exports = class FileMetaData {
 
     constructor(hostname) {

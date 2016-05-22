@@ -1,9 +1,6 @@
 'use strict';
 const moment = require("moment");
 
-//Lets define a port we want to listen to
-const PORT=8080;
-
 module.exports = class TimeStamp {
 
     constructor(hostname, bingApiKey) {

@@ -2,10 +2,6 @@
 //Lets require/import the HTTP module
 const http = require('http');
 
-const PORT = process.env.PORT;
-const IP = process.env.IP;
-const HOSTNAME = 'https://fcc-ms-url-shortener-michaelleehobbs.c9users.io/';
-
 module.exports = class MSUrlShortener {
   constructor(hostname) {
     this._hostname = hostname;
@@ -35,10 +31,10 @@ module.exports = class MSUrlShortener {
     let shortUrl;
     let id;
     if (this._urlReverseMap.has(url)) {
-      shortUrl = HOSTNAME + this._urlReverseMap.get(url);
+      shortUrl = this._hostname + this._urlReverseMap.get(url);
     } else {
       id = `${this.id}`;
-      shortUrl = HOSTNAME + id;
+      shortUrl = this._hostname + id;
       this._urlMap.set(id, url);
       this._urlReverseMap.set(url, id);
     }
