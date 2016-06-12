@@ -42,7 +42,7 @@ app.use(['/api/latest/imagesearch', '/api/imagesearch/:search?'], (req, res, nex
 
 app.use('/api/filemetadata', upload.single('afile'), (req, res, next) => fileMetaData.handleRequest(req, res, next));
 
-app.use('/', express.static(path.resolve('client')));
+app.use('/', express.static(path.resolve('../client')));
 
 app.get('/', (req, res) => {
   res.sendFile(path.resolve('../client/index.html'));
