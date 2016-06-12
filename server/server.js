@@ -29,6 +29,8 @@ const fileMetaData = new FileMetaData(HOSTNAME);
 // logging
 app.use(morgan('dev'));
 
+//app.set('view engine', 'html');
+
 // use arrow function so we get proper binding of this
 app.use(['/new/:url', '/:id(\\d*)/'], (req, res, next) => urlShortener.handleRequest(req, res, next));
 
@@ -40,10 +42,10 @@ app.use(['/api/latest/imagesearch', '/api/imagesearch/:search?'], (req, res, nex
 
 app.use('/api/filemetadata', upload.single('afile'), (req, res, next) => fileMetaData.handleRequest(req, res, next));
 
-app.use('/', express.static(path.resolve('../client')));
+app.use('/', express.static(path.resolve('client')));
 
 app.get('/', (req, res) => {
-  res.render('index');
+  res.sendFile(path.resolve('client/index.html'));
 });
 
 app.listen(PORT, IP, function() {
