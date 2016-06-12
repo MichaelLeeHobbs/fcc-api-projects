@@ -45,7 +45,7 @@ app.use('/api/filemetadata', upload.single('afile'), (req, res, next) => fileMet
 app.use('/', express.static(path.resolve('client')));
 
 app.get('/', (req, res) => {
-  res.sendFile(path.resolve('client/index.html'));
+  res.sendFile(path.resolve('../client/index.html'));
 });
 
 app.listen(PORT, IP, function() {
