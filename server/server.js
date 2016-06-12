@@ -1,7 +1,7 @@
 'use strict';
 const common = require('./common.js');
 const config = common.config();
-const HOSTNAME = config.hostname;
+const HOSTNAME = require('os').hostname();
 const IP = config.ip || process.env.IP;
 const PORT = config.port || process.env.PORT;
 
