@@ -119,7 +119,7 @@
                         </blockquote>
                         <h3>Example Usage:</h3>
                         <blockquote>
-                            <code>http://api.michaelleehobbs.net/api/timestamp/December%2002,%201975</code>
+                            <code><a href="http://api.michaelleehobbs.net/api/timestamp/December%2002,%201975">http://api.michaelleehobbs.net/api/timestamp/December%2002,%201975</a></code>
                         </blockquote>
                         <h3>Example Output:</h3>
                         <blockquote>
@@ -134,7 +134,7 @@
                         </blockquote>
                         <h3>Example Usage:</h3>
                         <blockquote>
-                            <code>http://api.michaelleehobbs.net/api/timestamp/1450137600</code>
+                            <code><a href="http://api.michaelleehobbs.net/api/timestamp/1450137600">http://api.michaelleehobbs.net/api/timestamp/1450137600</a></code>
                         </blockquote>
                         <h3>Example Output:</h3>
                         <blockquote>
@@ -172,7 +172,7 @@
                         </blockquote>
                         <h3>Example Usage:</h3>
                         <blockquote>
-                            <code>http://api.michaelleehobbs.net/api/rhp</code>
+                            <code><a href="http://api.michaelleehobbs.net/api/rhp"></a>http://api.michaelleehobbs.net/api/rhp</code>
                         </blockquote>
                         <h3>Example Output:</h3>
                         <blockquote>
@@ -211,7 +211,7 @@
                         </blockquote>
                         <h3>Example creation Usage:</h3>
                         <blockquote>
-                            <code>http://api.michaelleehobbs.net/api/new/https://www.google.com</code>
+                            <code><a href="http://api.michaelleehobbs.net/api/new/https://www.google.com">http://api.michaelleehobbs.net/api/new/https://www.google.com</a></code>
                         </blockquote>
                         <h3>Example creation Output</h3>
                         <blockquote>
@@ -220,13 +220,13 @@
 // http://api.michaelleehobbs.net/api/new/https://www.google.com
 
 {
-  "original_url": "https:",
-  "short_url": "http://api.michaelleehobbs.net/0"
+  "original_url": "https://www.google.com",
+  "short_url": "<a href="https://api.michaelleehobbs.net/0">https://api.michaelleehobbs.net/0</a>"
 }                           </pre></code>
                         </blockquote>
                         <h3>Usage:</h3>
                         <blockquote>
-                            <code>http://api.michaelleehobbs.net/0</code>
+                            <code><a href="http://api.michaelleehobbs.net/0">http://api.michaelleehobbs.net/0</a></code>
                         </blockquote>
 
                         <h3>Will redirect to:</h3>
@@ -260,7 +260,7 @@
                         </blockquote>
                         <h3>Example Search Usage:</h3>
                         <blockquote>
-                            <code>http://api.michaelleehobbs.net/api/imagesearch/lolcats%20funny?offset=10</code>
+                            <code><a href="http://api.michaelleehobbs.net/api/imagesearch/lolcats%20funny?offset=10">http://api.michaelleehobbs.net/api/imagesearch/lolcats%20funny?offset=10</a></code>
                         </blockquote>
                         <h3>Example Search Output</h3>
                         <blockquote>
@@ -285,7 +285,7 @@
                         </blockquote>
                         <h3>Example Usage:</h3>
                         <blockquote>
-                            <code>http://api.michaelleehobbs.net/api/latest/imagesearch</code>
+                            <code><a href="http://api.michaelleehobbs.net/api/latest/imagesearch">http://api.michaelleehobbs.net/api/latest/imagesearch</a></code>
                         </blockquote>
 
                         <h3>Example Output</h3>
@@ -369,14 +369,16 @@
                 <div class="col-lg-12 col-sm-12">
                     <div class="clearfix"></div>
                     <p class="lead">For this third backend project once I had finished the microservice I felt it really needed a view. Normally for something like this I would just use a Yeoman generator like AngularFullStack, but then that would be even heaver than the one FCC provided to us. Thus I decided to simple expand on the frame work I had build. Initially, I just built a simple Node route handler and a very simple index.html view that was basically identical to the example project. However, it was to plain for my taste. Rather than take the time to build out a nice view, I Googled up some templates and picked one I liked. This however left me with a problem where I now had many files to serve rather than one. Not wanting to take the time to solve a problem that has already been solved, I opted for Express.js.</p>
-                    <p class="lead">After getting Express up and severing the client view it was time to hook in a route for the microserve. On the surface this is easy enough. However, a subtle issue I ran into was with the routes where the template I used expected assets to live on / and the microsevice specification also expected to use the / route. To get around this limitation I had to dig into the Express API documentation a bit. That's right, I read the manual. As we like to joke at work I've lost some nerd credit, hopefully not too much. Jokes aside, I was able to come up a route <code>'/:id(\d*)'</code> that solved my issues. This route will match any route that starts with / and contains a string of numbers. If it doesn't match then Express will pass it along and my / route will catch it servering up the static content of my client view. The only real magic here is knowing that you can combine params and regex.</p>
+                    <p class="lead">After getting Express up and severing the client view it was time to hook in a route for the microserve. On the surface this is easy enough. However, a subtle issue I ran into was with the routes where the template I used expected assets to live on / and the microsevice specification also expected to use the / route. To get around this limitation I had to dig into the Express API documentation a bit. That's right, I read the manual. As we like to joke at work I've lost some nerd credit, hopefully not too much. Jokes aside, I was able to come up a route <code>'/:id(\\d*)'</code> that solved my issues. This route will match any route that starts with / and contains a string of numbers. If it doesn't match then Express will pass it along and my / route will catch it servering up the static content of my client view. The only real magic here is knowing that you can combine params and regex.</p>
                     <p class="lead">Additionally, I took the opportunity to use an ES6 Generator to handle id generation for the urls. While generators are straight forward enough to deploy, finding a use for them outside of some specific problems types seems to be the real trick. To use them for this problem, I first setup the generator:
 <pre><code>*getId() {
   let nextId = 0;
   while(true) {
     yield nextId++;
     if (nextId === Number.MAX_SAFE_INTEGER) {
-      nextId = 0;
+        // we set it to 1 and not 0 so the default google shorten url will not be overwritten
+        // However, the universe will end before we ever reach MAX_SAFE_INTEGER
+        nextId = 1;
     }
   }
 }</code></pre> Next I setup a namespaced private member variable to hold it:
@@ -414,10 +416,11 @@
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
                     <h2 class="section-heading">Michael Lee Hobbs<br>Computer Scientist, DevOps<br>Picatinny Arsenal</h2>
-                    <p class="lead">I work for the DoD developing battle field technologies. My primary area of expertise is the MEAN stack, DevOps, Linux Admin, and Networking. Currently am very focused on mastering Nodejs; clustering/forking, learning Chef/Puppet as well as React. My interest and hobbies include: Automating the world, reading/writing books, wathcing movies, and playing video/board games.</p>
+                    <p class="lead">I work for the DoD developing battle field technologies. My primary area of expertise is the MEAN stack, DevOps, Linux Admin, and Networking. Currently, I am very focused on mastering Nodejs; clustering/forking, learning Chef/Puppet as well as React. My interest and hobbies include: Automating the world, reading/writing books, wathcing movies, and playing video/board games.</p>
                 </div>
                 <div class="col-lg-3 col-sm-pull-6  col-sm-6">
                     <img style="width: 150%; height: 150%" class="img-responsive" src="https://avatars0.githubusercontent.com/u/6986471?v=3&u=d9dc930c2517243ef6087cd97203f7519251f8a8&s=140" alt="">
+                    <figcaption>Yes, I need a better picture =)</figcaption>
                 </div>
             </div>
 
