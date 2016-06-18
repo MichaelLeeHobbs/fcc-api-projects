@@ -8,10 +8,11 @@ module.exports = class MSUrlShortener {
     this._urlMap = new Map();
     this._urlReverseMap = new Map();
     this._idGenerator = this.getId();
+    this.shortenUrl('https://www.google.com');
   }
 
   handleRequest(request, response, next) {
-    console.log(`request = ${JSON.stringify(request.params)}`);
+    //console.log(`request = ${JSON.stringify(request.params)}`);
     let url = request.params.url;
     if (url) {
       if (request.params.proto) {
@@ -60,7 +61,9 @@ module.exports = class MSUrlShortener {
     while(true) {
       yield nextId++;
       if (nextId === Number.MAX_SAFE_INTEGER) {
-        nextId = 0;
+        // we set it to 1 and not 0 so the default google shorten url will not be overwritten
+        // However, the universe will end before we ever reach MAX_SAFE_INTEGER
+        nextId = 1;
       }
     }
   }
