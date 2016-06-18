@@ -11,8 +11,13 @@ module.exports = class MSUrlShortener {
   }
 
   handleRequest(request, response, next) {
-    if (request.params.url) {
-      response.end(JSON.stringify(this.shortenUrl(request.params.url)));
+    //console.log(`request = ${JSON.stringify(request.params)}`);
+    let url = request.params.url;
+    if (url) {
+      if (request.params.proto) {
+        url = request.params.proto + '//' + url;
+      }
+      response.end(JSON.stringify(this.shortenUrl(url)));
       return;
     }
 
@@ -34,7 +39,7 @@ module.exports = class MSUrlShortener {
       shortUrl = this._hostname + this._urlReverseMap.get(url);
     } else {
       id = `${this.id}`;
-      shortUrl = this._hostname + id;
+      shortUrl = this._hostname + '/' + id;
       this._urlMap.set(id, url);
       this._urlReverseMap.set(url, id);
     }
@@ -42,7 +47,7 @@ module.exports = class MSUrlShortener {
   }
 
   redirect(url) {
-    return (this._urlMap.has(url)) ? `https://${this._urlMap.get(url)}` : { "error": "Url not in database." };
+    return (this._urlMap.has(url)) ? `${this._urlMap.get(url)}` : { "error": "Url not in database." };
   }
 
   isValidUrl(url) {

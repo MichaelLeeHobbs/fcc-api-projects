@@ -32,7 +32,7 @@ app.use(morgan('dev'));
 //app.set('view engine', 'html');
 
 // use arrow function so we get proper binding of this
-app.use(['/new/:url', '/:id(\\d*)/'], (req, res, next) => urlShortener.handleRequest(req, res, next));
+app.use(['/api/new/:proto//:url', '/api/new/:url', '/:id(\\d*)/'], (req, res, next) => urlShortener.handleRequest(req, res, next));
 
 app.use('/api/timestamp/:input', (req, res, next) => timeStamp.handleRequest(req, res, next));
 
