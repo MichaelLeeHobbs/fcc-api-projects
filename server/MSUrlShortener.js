@@ -11,7 +11,7 @@ module.exports = class MSUrlShortener {
   }
 
   handleRequest(request, response, next) {
-    //console.log(`request = ${JSON.stringify(request.params)}`);
+    console.log(`request = ${JSON.stringify(request.params)}`);
     let url = request.params.url;
     if (url) {
       if (request.params.proto) {
